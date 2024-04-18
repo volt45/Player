@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>{% block title %}Music Player{% endblock %}</title>
 </head>
 <body>
@@ -15,17 +16,17 @@
             </div>
             <div class="profile">
                 <div class="user">{{ login }}</div>
-                <a href="">Профиль</a>
-                <a href="">Выход</a>
+                <a href="logout">Выход</a>
             </div>
         </div>
     </header>
     <main>
         <div class="all_music">
            {% for music in all_music %}
-               <div class="one_music" onclick="play_this(event,'{{ music.Name }}', '{{ music.Author }}', '{{ music.Url }}')">
+               <div class="one_music" onclick="play_this(event,'{{ music.Name }}', '{{ music.Autor }}', '{{ music.Url }}')">
                    <span class="play_btn"></span>
                    <span class="name_music">{{ music.Name }}</span>
+                   <p class="author_music">{{ music.Autor }}</p>
                    <span class="link_music" hidden="">{{ music.Url }}</span>
                </div>
            {% endfor %}
@@ -40,18 +41,18 @@
         </div>
         <div id="mid">
             <div id="left">
-                <button id="next">&#11164</button>
-                <button id="play" onclick="player_play()">&#9658</button>
-                <button id="pause" onclick="player_pause()">&#9658</button>
-                <button id="last">&#11166</button>
-                <div id="timer">/ 1:27</div>
+                <button id="next"><i class="material-icons">skip_previous</i></button>
+                <button id="play" onclick="player_play()"><i class="material-icons">play_arrow</i></button>
+                <button id="pause" onclick="player_pause()"><i class="material-icons">pause</i></button>
+                <button id="last"><i class="material-icons">skip_next</i></button>
+                <div id="timer"></div>
             </div>
             <div id="text">
                 <div id="footer_name_music"></div>
             </div>
             <div id="right">
                 <input type="range" min="0" max="100" value="25" id="sound_bar" oninput="volume_change()">
-                <button id="loop">&#11156</button>
+                <button id="loop"><i class="material-icons">repeat</i></button>
             </div>
         </div>
     </footer>

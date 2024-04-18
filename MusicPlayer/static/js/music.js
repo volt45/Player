@@ -1,9 +1,10 @@
 player = document.getElementById('player')
-current_time = document.getElementById('not_active_duration')
+current_time = document.getElementById('timer')
 time_line_current = document.getElementById('active_duration')
 sound_bar = document.getElementById('sound_bar')
 footer_music_name = document.getElementById('footer_name_music')
 loop = document.getElementById('loop')
+duration = document.getElementById('duration')
 let isLoop = false
 
 player.addEventListener("ended", ()=>{
@@ -22,6 +23,8 @@ loop.addEventListener("click", ()=>{
     if(!isLoop)
         loop.style.backgroundColor = "rgba(128, 128, 128, 0)"
 })
+
+player.addEventListener("timeupdate", update_timeInfo);
 
 function player_play(){
     player.play()
@@ -46,11 +49,23 @@ player_line_update = setInterval(update_timer, 10)
 function play_this(event, name, author, url){
     player.setAttribute('src', url)
     footer_music_name.innerHTML = name
+
     let buttons = document.getElementsByClassName("play_btn")
     for (let button of buttons){
         button.style = "opacity: 0"
     }
     player.play()
+}
+
+function update_timeInfo(){
+    let max_minutes = Math.floor(Math.floor(player.duration) / 60)
+    let max_seconds = Math.floor(player.duration) % 60
+    let minutes = Math.floor(Math.floor(player.currentTime) / 60)
+    let seconds = Math.floor(player.currentTime) % 60
+    if(seconds < 10){
+        seconds = "0" + seconds
+    }
+    current_time.innerHTML = `${minutes}:${seconds} / ${max_minutes}:${max_seconds}`
 }
 
 function get_new_position(event){

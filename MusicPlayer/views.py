@@ -18,7 +18,8 @@ def index(request):
     login = request.COOKIES.get("login")
     if not is_current_user(request):
         return HttpResponseRedirect(redirect_to="/")
-    return render(request, 'player/templates/index.html', context={"all_music": all_music, 'first': all_music[0], 'login': login})
+    return render(request, 'player/templates/index.html',
+                  context={"all_music": all_music, 'first': all_music[0], 'login': login})
 
 
 def login(request):
@@ -41,6 +42,13 @@ def login(request):
     response = HttpResponseRedirect("/index")
     response.set_cookie("login", user_login, max_age=180)
     response.set_cookie("password", user_password, max_age=180)
+    return response
+
+
+def logout(request):
+    response = HttpResponseRedirect("/")
+    response.set_cookie("login", max_age=0)
+    response.set_cookie("password", max_age=0)
     return response
 
 

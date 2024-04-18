@@ -6,6 +6,7 @@ html{
     padding: 0;
     margin: 0;
     height: 100%;
+    overflow: clip;
 }
 
 body{
@@ -50,8 +51,8 @@ header{
 
 main{
     z-index: 1;
-    padding-top: 50px;
-    height: 94vh;
+    padding-top: 40px;
+    height: 100vh;
     width: 100%;
     background-color: #000000;
     text-align: center;
@@ -104,12 +105,25 @@ button{
 
 .one_music{
     cursor: pointer;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     border: 1px #3C3C3C solid;
     border-radius: 50px;
-    width: 150px;
+    height: 42px;
+    width: 350px;
     margin-left: auto;
     margin-right: auto;
+    text-align: left;
+    padding-left: 25px;
+}
+
+.one_music:hover{
+    border-color: yellow;
+}
+
+.author_music{
+    color: gray;
+    margin: 0;
+    font-size: 12px;
 }
 
 .name_music{
@@ -118,6 +132,8 @@ button{
 
 #timer{
     display: inline-block;
+    position: relative;
+    top: -7px;
 }
 
 .left_said{
@@ -142,6 +158,7 @@ a{
 #sound_bar{
     -webkit-appearance: none !important;
     background: black;
+    border-radius: 50px;
 }
 
 #sound_bar::-webkit-slider-thumb{
@@ -149,6 +166,19 @@ a{
     background: white;
     height: 10px;
     width: 10px;
+}
+
+#loop:hover, #next:hover, #play:hover, #pause:hover, #last:hover{
+    border: 1px solid yellow;
+    border-radius: 50%;
+}
+
+#loop, #next, #play, #pause, #last{
+    margin: 0;
+    color: black;
+    width: 40px;
+    height: 40px;
+
 }
 
 #search{
@@ -183,7 +213,7 @@ a{
         height: 0;
     }
     100%{
-        height: 85px;
+        height: 88px;
     }
 }
 
