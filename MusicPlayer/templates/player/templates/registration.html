@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{% static 'css/registration.css' %}">
+        <title>{% block title %}Music Player{% endblock %}</title>
+    </head>
+    <body>
+        <form action="" method="POST" id="login_form">
+            {% csrf_token %}
+            <label>Имя: </label><input type="text" class="FirstName" name="FirstName" required placeholder="Имя"><br><br>
+            <label>Фамилия: </label><input type="text" class="LastName" name="LastName" required placeholder="Фамилия"><br><br>
+            <label>Логин: </label><input type="text" class="Login" name="Login" required placeholder="Логин"><br><br>
+            <label>Почта: </label><input type="text" class="Email" name="Email" required placeholder="Email"><br><br>
+            <label>День рождения: </label><input type="date" class="DateBirth" name="DateBirth" required><br><br>
+            <label>Телефон: </label><input type="text" class="Phone" name="Phone" required placeholder="Телефон"><br><br>
+            <label>Пароль: </label><input type="password" class="Password" name="Password" required placeholder="Пароль"><br><br>
+            <input type="submit" id="login_input" value="Зарегистрироваться"><br><br>
+            <a href="/">Авторизация</a>
+        </form>
+    </body>
+</html>

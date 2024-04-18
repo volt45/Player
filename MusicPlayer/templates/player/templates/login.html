@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{% static 'css/login.css' %}">
+        <title>{% block title %}Music Player{% endblock %}</title>
+    </head>
+    <body>
+        <div id="loader"></div>
+        <form action="" method="POST" id="login_form">
+        {% csrf_token %}
+        <input type="text" id="from_input" name="Login" placeholder="Логин" required><br><br>
+        <input type="password" id="from_input" name="Password" placeholder="Пароль" required><br><br>
+        <input type="submit" id="login_input" onclick="enableLoader()" value="Авторизация">
+        <a href="registration.html" onclick="enableLoader()">Регистрация</a>
+        </form>
+    <script src="{% static 'js/button.js' %}"></script>
+    </body>
+</html>

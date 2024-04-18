@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <title>{% block title %}Music Player{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <div id="header_container">
+            <div id="search_container">
+                <input type="text" id="search" placeholder="Поиск">
+                <button id="btn_search">Поиск</button>
+            </div>
+            <div class="profile">
+                <div class="user">{{ login }}</div>
+                <a href="">Профиль</a>
+                <a href="">Выход</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="all_music">
+           {% for music in all_music %}
+               <div class="one_music" onclick="play_this(event,'{{ music.Name }}', '{{ music.Author }}', '{{ music.Url }}')">
+                   <span class="play_btn"></span>
+                   <span class="name_music">{{ music.Name }}</span>
+                   <span class="link_music" hidden="">{{ music.Url }}</span>
+               </div>
+           {% endfor %}
+        </div>
+        <audio id="player" src="{{ first.Url }}"></audio>
+    </main>
+    <footer>
+        <div>
+            <div id="not_active_duration" onclick="get_new_position(event)"></div>
+            <div id="active_duration" onclick="get_new_position(event)"></div>
+            <p id="current_time"></p>
+        </div>
+        <div id="mid">
+            <div id="left">
+                <button id="next">&#11164</button>
+                <button id="play" onclick="player_play()">&#9658</button>
+                <button id="pause" onclick="player_pause()">&#9658</button>
+                <button id="last">&#11166</button>
+                <div id="timer">/ 1:27</div>
+            </div>
+            <div id="text">
+                <div id="footer_name_music"></div>
+            </div>
+            <div id="right">
+                <input type="range" min="0" max="100" value="25" id="sound_bar" oninput="volume_change()">
+                <button id="loop">&#11156</button>
+            </div>
+        </div>
+    </footer>
+<script src="{% static 'js/music.js' %}"></script>
+</body>
+</html>

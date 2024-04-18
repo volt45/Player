@@ -1,0 +1,79 @@
+html{
+    font-family: Calibri, serif;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    background-color: #000000;
+}
+
+#login_form{
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 50px;
+    border: darkgray 1px solid;
+    width: 290px;
+    top: 25%;
+    text-align: center;
+    box-shadow: 15px 10px 50px 4px darkgray;
+    animation: move 3s;
+}
+
+form{
+    background-color: white;
+}
+
+input{
+    border: 0;
+    text-align: center;
+}
+
+#login_input{
+    border: 0;
+    background-color: white;
+    font-family: Calibri, serif;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.loader{
+    height: 120px;
+    width: 120px;
+    border: 12px solid #e3e3e3;
+    border-radius: 50%;
+    border-right-color: #4070f4;
+    animation: spin 1.5s ease infinite;
+}
+
+@keyframes move {
+   from{
+       opacity: 0;
+       top: -200px;
+   }
+    to{
+        opacity: 100%;
+        top: 25%;
+    }
+}
+
+@keyframes spin {
+    100%{
+        transform: rotate(360deg);
+    }
+}

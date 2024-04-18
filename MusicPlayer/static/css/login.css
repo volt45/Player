@@ -1,0 +1,89 @@
+html{
+    font-family: Calibri, serif;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    z-index: 0;
+}
+
+body{
+    z-index: 1;
+    padding: 0;
+    margin: 0;
+    height: 70%;
+    background-color: #000000;
+}
+
+#login_form{
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50px;
+    border: darkgray 1px solid;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 290px;
+    top: 45%;
+    left: 42%;
+    text-align: center;
+    box-shadow: 15px 10px 50px 4px darkgray;
+    animation: move 5s;
+}
+
+#loader{
+    position: relative;
+    height: 150px;
+    width: 150px;
+    top: 20%;
+    border: 12px solid #e3e3e3;
+    border-radius: 50%;
+    border-right-color: #4070f4;
+    animation: spin 1.5s ease infinite;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15%;
+    display: none;
+    z-index: 99;
+}
+
+form{
+    background-color: white;
+}
+
+input{
+    border: 0;
+    text-align: center;
+}
+
+#login_input{
+    border: 0;
+    background-color: white;
+    font-family: Calibri, serif;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+@keyframes move {
+   from{
+       opacity: 0;
+       top: -200px;
+   }
+    to{
+        opacity: 100%;
+        top: 45%;
+    }
+}
+
+@keyframes spin {
+    100%{
+        transform: rotate(360deg);
+    }
+}
